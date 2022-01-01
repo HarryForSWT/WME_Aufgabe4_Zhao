@@ -1,0 +1,191 @@
+/* CSS Document */
+
+
+nav{
+	margin-left: 7%;
+
+}
+
+
+body {
+	font: normal normal 400 15px/145% 'Roboto', sans-serif;
+	
+}
+
+a:hover {
+	color: #3f7c14;
+	text-decoration: none;
+}
+
+
+
+h1 { 
+    line-height: 150%;
+    font-size: 3em;
+    font-style: normal;
+    font-weight: normal;
+    font-family: 'Roboto', sans-serif;
+	margin-top: 3em;
+}
+
+section{
+    border: 1px solid chartreuse;
+    padding: 5px;
+    columns: 250px 3;
+    margin-bottom: 20px;
+	
+}
+section > p > a {
+	color: #49c932;
+}
+section > a:hover{
+	color: #3f7c14;
+}
+
+/*Design für die Tabelle*/
+
+th {
+  text-align: left;
+  border-bottom: 3px solid #ddd;
+  height: 3em;
+  width:auto;
+}
+
+
+td {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	width: auto;
+	margin-bottom: 3em;
+	height: 2em;
+	vertical-align: middle;
+}
+
+table{
+	width:100%;
+	margin-top: 10px;
+}
+
+
+
+/*Design für den Header*/
+header {
+	background-color: #333333;
+	background: linear-gradient(to bottom, #d0d0d0 0%,#f0f0f0 100%);
+	border-bottom: 1px solid #ccc;
+	color: #333;
+	height: 64px;
+	width: 100%;
+	
+	top: 0;
+}
+
+header > nav > .logo {
+    background: transparent url("world_data-logo.png") no-repeat 0 0%;
+	float: left;
+	font-size: 2em;
+	font-weight: 500;
+	line-height: 190px;
+    margin-left: 0%;
+	margin-right: 0%;
+	overflow: hidden;
+	width: 150px;
+}
+
+header > nav a {
+	background-color: transparent;
+	color: #666;
+	display: block;
+	height: 64px;
+	line-height: 100px;
+	padding: 0 1em;
+	text-decoration: none;
+	transition: 250ms background-color linear;
+}
+header > nav #pull {
+	float: right;
+	margin-top: 35px;
+	left: 92%;
+	position:fixed;
+} 
+
+header > nav > ul > li:hover > a, header > nav a:hover {
+	background-color: #ccc;
+	color: black;
+}
+	/*Größeneinstellung für icons auf nav*/
+header > nav a > i {
+	font-size: 1.5em;
+	margin-right: .25em;
+}
+header > nav > .logo:hover {
+	background-color: transparent;
+	background-position: 0 -64px;
+}
+header > nav > ul {
+	float:left;
+	list-style: none none inside ;
+	margin: 0px;
+	padding: 0px;
+	display: block;
+	
+}
+header> nav > ul > #main_nav{
+	position: absolute;
+}
+header > nav > ul > li {
+	position: relative;
+	border-right: 1px solid #ccc;
+	display: inline-block;
+}
+header > nav > ul > li:first-child {
+	border-left: 1px solid #ccc;
+}
+
+
+
+/*Alle Links bei Show/hide auf grau setzen*/
+
+main> table >#thead-fake > tr > th, main> table >#thead-fake > tr > th > a {
+	color: #686767;
+	border-bottom: 0px;
+	width: auto;
+} 
+
+main> table >#thead-fake > tr > th:nth-child(2) {
+	width: auto;
+  }
+/*Alle Links werden grün und ohne Unterstrich*/
+main> table >#thead-fake > tr > th > a:hover{
+    color: #3f7c14;
+}
+
+
+
+
+/*Design für footer */
+
+  /*Footer-Line bzw. die Farbe der Schrifte*/
+
+footer {
+	border-top: 1px solid #6bc32d;
+	color: #666;
+	font-size: .9em;
+	margin-top: 5em;
+	padding: 1em 0;
+}
+	/*Linke Seite des Footers*/
+footer >div.container > .right {
+	float: right;
+	text-align: right;
+}
+	/*Rechte Seite des Footers*/
+footer >div.container > .left {
+	float: left;
+	width: 40%;
+}
+
+thead{
+	color: black;
+}
