@@ -38,12 +38,69 @@ function makeDHs() {
 window.onload = () => {
   makeDHs();
 
+  var svg1 = d3.select("#svg1");
+  const svg1height= +svg1.attr("height") ;
+  const svg1width= +svg1.attr("width");
+  var svg2 = d3.select("#svg2");
+  const svg2height= +svg2.attr("height") ;
+  const svg2width= +svg2.attr("width");
+
 
   const render = data => {
     
+    const xValue = d => d.name;
+    const yValue = d=> d.birth_rate_per_1000;
+
+    //y "Wertebereich" dateneinstellen
+    const yScale = d3
+      .scaleLinear()
+      .domain([0, d3.max(data, yValue)])
+      .nice()
+      .range([150,0]);
+    //x "Definitionsbereich" Dateneinstellen
+    const xScale = d3
+      .scaleBand()
+      .domain(data.map(xValue))
+      .range([0, svg1width-65])
+      .padding(0.2);
+    
+    //Objekt "g" mit der generellen Translationseinstelleung
+    const g = svg1
+      .append("g");
+
+    const xAxis = d3.axisBottom(xScale);
+    const yAxis = d3.axisLeft(yScale);
+    //y-Achse Zeichnen
+
+    const yAxisG = g
+      .append("g")
+      .call(yAxis)
+      .attr("transform", `translate(40,30)`);
+   
+    //x-Achse Zeichnen
+   const xAxisG = g
+      .append("g")
+      .call(xAxis)
+      .attr('transform', `translate(40,180)`);
+   
+
+    //Daten in Balken visualisieren
+    svg1
+      .selectAll("rect")
+      .data(data)
+      .enter()
+      .append("rect")
+      .attr("x", d => xScale(xValue(d))+40)
+      .attr("y", d => yScale(yValue(d)))
+      .attr("height", d => 150-yScale(yValue(d)))
+      .attr("width", xScale.bandwidth())
+      .attr("fill", "black")
+      .attr('transform', `translate(0,30)`);
+
+
   };
 
-  
+
   d3.csv("world_data_v1.csv").then(data => {
     data.forEach(d => {
       d.birth_rate_per_1000 = +d.birth_rate_per_1000;

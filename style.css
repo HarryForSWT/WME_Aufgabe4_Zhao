@@ -12,21 +12,6 @@ body {
 	
 }
 
-a:hover {
-	color: #3f7c14;
-	text-decoration: none;
-}
-
-
-
-h1 { 
-    line-height: 150%;
-    font-size: 3em;
-    font-style: normal;
-    font-weight: normal;
-    font-family: 'Roboto', sans-serif;
-	margin-top: 3em;
-}
 
 section{
     border: 1px solid chartreuse;
@@ -35,36 +20,16 @@ section{
     margin-bottom: 20px;
 	
 }
-section > p > a {
-	color: #49c932;
-}
+
 section > a:hover{
 	color: #3f7c14;
 }
 
 /*Design für die Tabelle*/
 
-th {
-  text-align: left;
-  border-bottom: 3px solid #ddd;
-  height: 3em;
-  width:auto;
-}
 
-
-td {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	word-wrap: break-word;
-	width: auto;
-	margin-bottom: 3em;
-	height: 2em;
-	vertical-align: middle;
-}
-
-table{
-	width:100%;
-	margin-top: 10px;
+#svg1,#svg2{
+	border: 1px solid chartreuse;
 }
 
 
@@ -145,21 +110,6 @@ header > nav > ul > li:first-child {
 
 
 
-/*Alle Links bei Show/hide auf grau setzen*/
-
-main> table >#thead-fake > tr > th, main> table >#thead-fake > tr > th > a {
-	color: #686767;
-	border-bottom: 0px;
-	width: auto;
-} 
-
-main> table >#thead-fake > tr > th:nth-child(2) {
-	width: auto;
-  }
-/*Alle Links werden grün und ohne Unterstrich*/
-main> table >#thead-fake > tr > th > a:hover{
-    color: #3f7c14;
-}
 
 
 
