@@ -28,8 +28,10 @@ section > a:hover{
 /*Design für die Tabelle*/
 
 
-#svg1,#svg2{
+#bar1,#bar2{
 	border: 1px solid chartreuse;
+	display:block;
+	width: 100%;
 }
 
 
