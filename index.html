@@ -28,46 +28,43 @@
 </head>
 <body>
     <header>
-        <nav class="container clearfix" role="navigation">
+        <nav class="container clearfix">
             <a class="logo" href="#">world_data</a>
             <ul id="main_nav">
-                <li><a id="part_nav" href="#"><i class="fas fa-table"></i> A1 - Table</a></li>
-                <li><a id="part_nav" href="#"><i class="fas fa-cogs"></i> A2 - Parse</a></li>
-                <li><a id="part_nav" href="#"><i class="far fa-save"></i> A2 - Save</a></li>
-                <li><a id="part_nav" href="#"><i class="fas fa-print"></i> A2 - Print</a></li>
-                <li><a id="part_nav" href="#"><i class="fab fa-node"></i> A3 - REST</a></li>
-                <li><a id="part_nav" href="#"><i class="fas fa-map-marked-alt"></i> A4 - Vis</a></li>
-                <li><a id="part_nav" href="#"><i class="fas fa-cube"></i> A5 - 3D</a></li>            
+                <li><a href="#"><i class="fas fa-table"></i> A1 - Table</a></li>
+                <li><a href="#"><i class="fas fa-cogs"></i> A2 - Parse</a></li>
+                <li><a href="#"><i class="far fa-save"></i> A2 - Save</a></li>
+                <li><a href="#"><i class="fas fa-print"></i> A2 - Print</a></li>
+                <li><a href="#"><i class="fab fa-node"></i> A3 - REST</a></li>
+                <li><a href="#"><i class="fas fa-map-marked-alt"></i> A4 - Vis</a></li>
+                <li><a href="#"><i class="fas fa-cube"></i> A5 - 3D</a></li>            
             </ul>
             
         </nav>
     </header>
     <main>
         <div class="container">
-            <section id="visualize_sec">
-                <table style="width: 100%;">
-                    <tr>
-                        <td>
-                            <div id="barcontainer">
-
-                                <div id="bar1">
-                                    <svg id="svg1" height="300" width="500"></svg>
-                                </div>
-                                <div id="bar2">
-                                    <svg id="svg2" height="300" width="500"></svg>
-                                </div>                      
-                               
-                            </div>
-                     </td>
-                   
-                 </tr>
-                 <tr>
+            <table style="width: 100%;">
+                <tr>
                     <td>
-                        <div id="map" style="height: 600; width: 500;"></div>
+                        <div id="barcontainer">
+
+                            <div id="bar1">
+                                <svg id="svg1" height="300" width="500"></svg>
+                            </div>
+                            <div id="bar2">
+                                <svg id="svg2" height="300" width="500"></svg>
+                            </div>                      
+                            
+                        </div>
                     </td>
-                 </tr>
-             </table>
-            </section>
+                </tr>
+                <tr>
+                <td>
+                    <div id="map"></div>
+                </td>
+                </tr>
+            </table>
         </div>
         
     </main>
