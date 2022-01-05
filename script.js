@@ -57,6 +57,7 @@ window.onload = () => {
   });
 
   var markers = new Array();
+
   function buildLeaflet(){
     markers.length=0;
     for(var l=0; l<database.length;l++){
@@ -66,17 +67,19 @@ window.onload = () => {
       var m = new L.marker({lat: lat_,lon: long_});
       m.bindPopup(lastSelected + "<br/>from:"+name + "<br/>"+ database[l][lastSelected]);
       m.addTo(map);
+      m._icon.attributes[0].value = "unselected.png";
       markers.push(m);
       m.on('mouseover',function (d){
           var latitude = this._latlng.lat;       
           var x = document.querySelectorAll("."+findCountryName(latitude));
-          x.forEach(function (d){return d.setAttribute("style", "fill: steelblue");})  
-          
+          x.forEach(function (d){return d.setAttribute("style", "fill: #00ff00");})  
+          this._icon.attributes[0].value = "marker.png";
       });
       m.on('mouseout', function (d){
         var latitude = this._latlng.lat;       
         var x = document.querySelectorAll("."+findCountryName(latitude));
         x.forEach(function (d){return d.setAttribute("style", "fill: gray");})   
+        this._icon.attributes[0].value = "unselected.png";
       });
     } 
          
@@ -91,6 +94,16 @@ window.onload = () => {
       }
     }
     return countryName;
+  }
+  function findCountryLatitude(name){
+    var countryLatitude;
+    for(let i=0; i<database.length; i++){
+      if(database[i].name==name){
+        countryLatitude= database[i].gps_lat;
+        break;
+      }
+    }
+    return countryLatitude;
   }
 
   const xValue = d => d.name;
@@ -222,9 +235,36 @@ window.onload = () => {
       } )
       .attr("width", xScale.bandwidth())
       .attr("fill", "gray")
-      .attr('transform', `translate(0,30)`);
+      .attr('transform', `translate(0,30)`)
+      .on("mouseover", function (d) { 
+          let countryName2= d3.select(this)._groups[0][0].getAttribute("class");
+          let y = document.querySelectorAll("."+countryName2);
+          y.forEach(function (d){return d.setAttribute("style", "fill: #00ff00");})
+          let countryLatitude2= findCountryLatitude(countryName2);
+          let r= getIcon(countryLatitude2);
+          markers[r]._icon.attributes[0].value = "marker.png";
+
+      })
+      .on("mouseout", function (d) { 
+        let countryName2= d3.select(this)._groups[0][0].getAttribute("class");
+        let y = document.querySelectorAll("."+countryName2);
+        y.forEach(function (d){return d.setAttribute("style", "fill: gray");})
+        let countryLatitude2= findCountryLatitude(countryName2);
+        let r= getIcon(countryLatitude2);
+        markers[r]._icon.attributes[0].value = "unselected.png";
+    });
   };
 
+  function getIcon(countryLatitude){
+    var icon=0;
+    for(let k =0; k<markers.length;k++){
+      if(markers[k]._latlng.lat==countryLatitude){
+        icon=k;
+        break;
+      }
+      
+    }return icon;
+  }
   const option1 = d3.select("#bar1")
     .insert("select", ":first-child")
     .attr("id", "select1")
@@ -340,7 +380,25 @@ window.onload = () => {
       } )
       .attr("width", xScale.bandwidth())
       .attr("fill", "gray")
-      .attr('transform', `translate(0,30)`);
+      .attr('transform', `translate(0,30)`)
+      .on("mouseover", function (d) { 
+        let countryName2= d3.select(this)._groups[0][0].getAttribute("class");
+        let y = document.querySelectorAll("."+countryName2);
+        y.forEach(function (d){return d.setAttribute("style", "fill: #00ff00");})
+        let countryLatitude2= findCountryLatitude(countryName2);
+        let r= getIcon(countryLatitude2);
+        markers[r]._icon.attributes[0].value = "marker.png";
+
+    })
+    .on("mouseout", function (d) { 
+      let countryName2= d3.select(this)._groups[0][0].getAttribute("class");
+      let y = document.querySelectorAll("."+countryName2);
+      y.forEach(function (d){return d.setAttribute("style", "fill: gray");})
+      let countryLatitude2= findCountryLatitude(countryName2);
+      let r= getIcon(countryLatitude2);
+      markers[r]._icon.attributes[0].value = "unselected.png";
+    });
+      
   };
 
 }
