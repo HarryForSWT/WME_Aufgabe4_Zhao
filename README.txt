@@ -5,3 +5,4 @@ Hinweis:1. Schauen Sie bestmöglich die Webseite im Vollbildschirm, damit sich d
 
 Link: https://glitch.com/~linen-abalone-hurricane
 Arbeitsideen kommen zum Teil vom Projekt von Herrn Daniel Perezamador
+3. Arbeitseditor MS VSCode mit Go Live-server, und keinen von Node.js gebraucht. 
